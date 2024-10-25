@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Tooplate">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+    <title>Paiement - Billetterie</title>
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/owl-carousel.css">
+
+    <link rel="stylesheet" href="assets/css/tooplate-artxibition.css">
+
+     <!-- Bootstrap CSS -->
+     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+     <!-- Custom CSS -->
+     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        .ticket-details-page {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .quantity-content {
+            display: flex;
+            align-items: center;
+            margin-top: 10px;
+        }
+
+        .total {
+            margin-top: 20px;
+        }
+
+        .payment-section {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #e9ecef;
+            border-radius: 8px;
+        }
+
+        .payment-details {
+            margin-top: 10px;
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: white;
+        }
+
+        .main-dark-button {
+            background-color: #029e54;
+            color: white;
+        }
+
+        .warn {
+            color: #d9534f;
+            margin-top: 10px;
+        }
+    </style>
+
+    </head>
+    
+    <body>
+    
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+      <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    
+    <!-- ***** Pre HEader ***** -->
+    <div class="pre-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-6">
+                    <span>Attention ! Votre prochain événement débute dans 15 jours.</span>
+                </div>
+                <div class="col-lg-6 col-sm-6">
+                    <div class="text-button">
+                        <a href="contact.html">Contactez-nous maintenant ! <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="index.html"><img class="logo" src="assets/images/logo.png" alt=""></a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li><a href="index.html" class="active">Accueil</a></li>
+                            <li><a href="creer-evenement.html">Créer un Événement</a></li>
+                            <li><a href="evement-details.html">Trouver des événements</a></li> 
+                            <li><a href="tickets.html">Tickets</a></li>
+                            <li><a href="connexion.html">Connexion</a></li>
+                            <li><a href="inscription.html">S'inscrire</a></li>
+                        </ul>        
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ***** About Us Page ***** -->
+    <div class="page-heading-shows-events">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <h2>Paiement pour l'Événement</h2>
+                    <span>Accédez à votre compte et gérez vos événements sécurisés avec des billets NFT</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="payment-section mt-4">
+        <h4>Méthode de Paiement</h4>
+        <form id="payment-form" action="process_payment.php" method="POST">
+            <div class="form-group">
+                <label for="payment-method">Choisissez votre méthode de paiement :</label>
+                <select id="payment-method" name="payment_method" required>
+                    <option value="bank_transfer">Virement Bancaire</option>
+                    <option value="orange_money">Orange Money</option>
+                </select>
+            </div>
+            
+            <div id="bank-details" class="payment-details">
+                <h5>Détails du Virement Bancaire</h5>
+                <p>Nom du compte : [Nom de l'organisateur]</p>
+                <p>Numéro de compte : [Numéro de compte]</p>
+                <p>Nom de la banque : [Nom de la banque]</p>
+            </div>
+            
+            <div id="orange-money-details" class="payment-details" style="display:none;">
+                <h5>Détails d'Orange Money</h5>
+                <p>Numéro de téléphone : [Numéro de téléphone]</p>
+                <p>Nom de l'organisateur : [Nom de l'organisateur]</p>
+            </div>
+            
+            <div class="form-group">
+                <label for="amount">Montant à payer :</label>
+                <input type="text" id="amount" name="amount" value="65" readonly>
+            </div>
+            
+            <button type="submit" class="main-dark-button"><a href="confirmer.html">Confirmer le paiement</a></button>
+        </form>
+    </div>
+    <div class="container ticket-details-page">
+        <div class="row">
+            <div class="col-lg-8">
+                <div class="left-image">
+                    <img src="assets/images/ticket-details.jpg" alt="Détails du billet" class="img-fluid">
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="right-content">
+                    <h4>Grand Théâtre National</h4>
+                    <span>240 billets disponibles</span>
+                    <ul class="list-unstyled">
+                        <li><i class="fa fa-clock-o"></i> Jeudi de 18h00 à 22h00</li>
+                        <li><i class="fa fa-map-marker"></i> Dakar, Plateau</li>
+                    </ul>
+                    <div class="quantity-content">
+                        <div class="left-content">
+                            <h6>Billet Standard</h6>
+                            <p id="ticket-price">65 $ par billet</p>
+                        </div>
+                        <div class="right-content">
+                            <div class="quantity buttons_added">
+                                <input type="button" value="-" class="minus" onclick="changeQuantity(-1)">
+                                <input type="number" step="1" min="1" max="10" id="ticket-quantity" value="1"
+                                    title="Quantité" class="input-text qty text" size="4" onchange="updateTotal()">
+                                <input type="button" value="+" class="plus" onclick="changeQuantity(1)">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="total">
+                        <h4>Total : <span id="total-price">65.00</span> $</h4>
+                        <div class="main-dark-button">
+                            <a href="#" onclick="showPaymentSection()">Acheter des billets</a>
+                        </div>
+                    </div>
+                    <div class="warn">
+                        <p>*Vous pouvez acheter jusqu'à 10 billets pour ce spectacle</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section pour contacter l'organisateur via WhatsApp -->
+        <div class="text-center mt-4">
+            <h5>Contactez l'Organisateur</h5>
+            <p>Vous avez des questions ? Envoyez un message directement sur WhatsApp !</p>
+            <a href="https://wa.me/221xxxxxxxxx" class="btn btn-success" target="_blank"
+                style="background-color: #029e54; color: white;">
+                <i class="fab fa-whatsapp"></i> Contacter sur WhatsApp
+            </a>
+        </div>
+
+        <!-- Section de paiement -->
+        <div class="payment-section" id="payment-section" style="display:none;">
+            <h4>Méthode de Paiement</h4>
+            <form id="payment-form" action="process_payment.php" method="POST">
+                <div class="form-group">
+                    <label for="payment-method">Choisissez votre méthode de paiement :</label>
+                    <select id="payment-method" name="payment_method" required>
+                        <option value="bank_transfer">Virement Bancaire</option>
+                        <option value="orange_money">Orange Money</option>
+                    </select>
+                </div>
+
+                <div id="bank-details" class="payment-details">
+                    <h5>Détails du Virement Bancaire</h5>
+                    <p>Nom du compte : [Nom de l'organisateur]</p>
+                    <p>Numéro de compte : [Numéro de compte]</p>
+                    <p>Nom de la banque : [Nom de la banque]</p>
+                </div>
+
+                <div id="orange-money-details" class="payment-details" style="display:none;">
+                    <h5>Détails d'Orange Money</h5>
+                    <p>Numéro de téléphone : [Numéro de téléphone]</p>
+                    <p>Nom de l'organisateur : [Nom de l'organisateur]</p>
+                </div>
+
+                <div class="form-group">
+                    <label for="amount">Montant à payer :</label>
+                    <input type="text" id="amount" name="amount" value="65" readonly class="form-control">
+                </div>
+
+                <button type="submit" class="main-dark-button"><a href="confirmer.html">Confirmer le Paiement</a></button>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        const ticketPrice = 65; // Prix du billet
+        const ticketQuantityInput = document.getElementById("ticket-quantity");
+        const totalPriceDisplay = document.getElementById("total-price");
+
+        function updateTotal() {
+            const quantity = parseInt(ticketQuantityInput.value);
+            const total = (ticketPrice * quantity).toFixed(2);
+            totalPriceDisplay.innerText = total; // Met à jour le total
+        }
+
+        function changeQuantity(change) {
+            let currentQuantity = parseInt(ticketQuantityInput.value);
+            currentQuantity += change;
+
+            // Limite la quantité entre 1 et 10
+            if (currentQuantity < 1) currentQuantity = 1;
+            if (currentQuantity > 10) currentQuantity = 10;
+
+            // Met à jour la valeur de l'input et le total
+            ticketQuantityInput.value = currentQuantity;
+            updateTotal();
+        }
+
+        function showPaymentSection() {
+            document.getElementById('payment-section').style.display = 'block';
+            updateTotal(); // Met à jour le total au moment d'afficher le formulaire
+        }
+
+        const paymentMethodSelect = document.getElementById('payment-method');
+        const bankDetails = document.getElementById('bank-details');
+        const orangeMoneyDetails = document.getElementById('orange-money-details');
+        const amountInput = document.getElementById('amount');
+
+        paymentMethodSelect.addEventListener('change', function () {
+            if (this.value === 'bank_transfer') {
+                bankDetails.style.display = 'block';
+                orangeMoneyDetails.style.display = 'none';
+            } else {
+                bankDetails.style.display = 'none';
+                orangeMoneyDetails.style.display = 'block';
+            }
+            amountInput.value = (parseInt(ticketQuantityInput.value) * ticketPrice).toFixed(2); // Met à jour le montant
+        });
+
+        // Initialisation du total au chargement de la page
+        updateTotal();
+    </script>    
+    
+
+    <!-- jQuery and Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    </footer>
+    
+    
+
+    <!-- jQuery -->
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/imgfix.min.js"></script> 
+    <script src="assets/js/mixitup.js"></script> 
+    <script src="assets/js/accordions.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    
+    <!-- Global Init -->
+    <script src="assets/js/custom.js"></script>
+
+    <!-- *** Footer *** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <!-- Address Section -->
+                <div class="col-lg-4">
+                    <div class="address">
+                        <h4>Adresse de notre Siège</h4>
+                        <span>5 Rue du Futur, <br>1000 Dakar<br>Senegal</span>
+                    </div>
+                </div>
+    
+                <!-- Useful Links Section -->
+                <div class="col-lg-4">
+                    <div class="links">
+                        <h4>Liens Utiles</h4>
+                        <ul>
+                            <li><a href="index.html" class="active">Accueil</a></li>
+                            <li><a href="creer-evenement.html">Créer un Événement</a></li>
+                            <li><a href="evement-details.html">Trouver des événements</a></li> 
+                            <li><a href="tickets.html">Tickets</a></li>
+                            <li><a href="tableaude-bord.html">Tableau de bord</a></li>
+                            <li><a href="connexion.html">Connexion</a></li>
+                            <li><a href="inscription.html">S'inscrire</a></li>
+                    </div>
+                </div>
+    
+                <!-- Open Hours Section -->
+                <div class="col-lg-4">
+                    <div class="hours">
+                        <h4>Horaires d'ouverture</h4>
+                        <ul>
+                            <li>Lun - Ven: 9h00 à 18h00</li>
+                            <li>Sam - Dim: 10h00 à 14h00</li>
+                            <li>Fériés: Fermé</li>
+                        </ul>
+                    </div>
+                </div>
+    
+                <!-- Under Footer -->
+                <div class="col-lg-12">
+                    <div class="under-footer">
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-6">
+                                <p>Sécurisez vos événements avec des billets NFT garantis</p>
+                            </div>
+                            <div class="col-lg-6 col-sm-6">
+                                <p class="copyright">
+                                    &copy; 2024 Billetterie Blockchain<br>
+                                    Conception : <a href="#" target="_blank" rel="nofollow">Aboubacar Camara</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Sub Footer with Navigation and Social Links -->
+                <div class="col-lg-12">
+                    <div class="sub-footer">
+                        <div class="row">
+                            <!-- Logo -->
+                            <div class="col-lg-3">
+                                <div class="logo">
+                                    <span>Billetterie<em>Blockchain</em></span>
+                                </div>
+                            </div>
+    
+                            <!-- Menu Navigation -->
+                            <div class="col-lg-6">
+                                <div class="menu">
+                                    <ul>
+                                        <li><a href="index.html" class="active">Accueil</a></li>
+                                        <li><a href="creer-evenement.html">Créer un Événement</a></li>
+                                        <li><a href="evement-details.html">Trouver des événements</a></li> 
+                                        <li><a href="tickets.html">Tickets</a></li>
+                                        <li><a href="tableaude-bord.html">Tableau de bord</a></li>
+                                        <li><a href="connexion.html">Connexion</a></li>
+                                        <li><a href="inscription.html">S'inscrire</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+    
+                            <!-- Social Media Links -->
+                            <div class="col-lg-3">
+                                <div class="social-links">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+  </body>
+
+</html>
+

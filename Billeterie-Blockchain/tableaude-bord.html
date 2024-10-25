@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Tooplate">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&display=swap" rel="stylesheet">
+
+    <title>Connexion</title>
+
+
+    <!-- Additional CSS Files -->
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/font-awesome.css">
+
+    <link rel="stylesheet" type="text/css" href="assets/css/owl-carousel.css">
+
+    <link rel="stylesheet" href="assets/css/tooplate-artxibition.css">
+    <link rel="shortcut icon" href="assets/images/logo.png" type="image/x-icon">
+     <!-- Bootstrap CSS -->
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+     <!-- Custom CSS -->
+     <style>
+        body {
+            background-color: #f8f9fa;
+            font-family: Arial, sans-serif;
+        }
+        .dashboard-container {
+            max-width: 800px;
+            margin: 50px auto;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .dashboard-title {
+            color: #02BE61;
+        }
+        .btn-custom {
+            background-color: #02BE61;
+            color: #fff;
+            border: none;
+        }
+    </style>
+
+    </head>
+    
+    <body>
+    
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+      <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+    
+    <!-- ***** Pre HEader ***** -->
+    <div class="pre-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-sm-6">
+                    <span>Attention ! Votre prochain événement débute dans 15 jours.</span>
+                </div>
+                <div class="col-lg-6 col-sm-6">
+                    <div class="text-button">
+                        <a href="contact.html">Contactez-nous maintenant ! <i class="fa fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- ***** Header Area Start ***** -->
+    <header class="header-area header-sticky">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <nav class="main-nav">
+                        <!-- ***** Logo Start ***** -->
+                        <a href="index.html"><img class="logo" src="assets/images/logo.png" alt=""></a>
+                        <!-- ***** Logo End ***** -->
+                        <!-- ***** Menu Start ***** -->
+                        <ul class="nav">
+                            <li><a href="index.html" class="active">Accueil</a></li>
+                            <li><a href="creer-evenement.html">Créer un Événement</a></li>
+                            <li><a href="evement-details.html">Trouver des événements</a></li> 
+                            <li><a href="tickets.html">Tickets</a></li>
+                            <li><a href="tableaude-bord.html">Tableau de bord</a></li>
+                            <li><a href="connexion.html">Connexion</a></li>
+                            <li><a href="inscription.html">S'inscrire</a></li>
+                        </ul>        
+                        <a class='menu-trigger'>
+                            <span>Menu</span>
+                        </a>
+                        <!-- ***** Menu End ***** -->
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
+
+    <!-- ***** About Us Page ***** -->
+    <div class="dashboard-container">
+        <h2 class="dashboard-title text-center">Tableau de Bord des Organisateurs</h2>
+        <div class="row mt-4">
+            <div class="col-md-6">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Billets VIP Vendus</h5>
+                        <p id="vipTicketsSold" class="card-text fs-4">0</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="card text-center">
+                    <div class="card-body">
+                        <h5 class="card-title">Billets Standard Vendus</h5>
+                        <p id="standardTicketsSold" class="card-text fs-4">0</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4">
+            <div class="card text-center">
+                <div class="card-body">
+                    <h5 class="card-title">Revenu Total Généré (€)</h5>
+                    <p id="totalRevenue" class="card-text fs-3">0.00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Simulation des données de billets vendus
+        let vipTicketsSold = 25; // Exemple
+        let standardTicketsSold = 45; // Exemple
+        let vipTicketPrice = 100; // Prix d'un billet VIP en euros
+        let standardTicketPrice = 50; // Prix d'un billet standard en euros
+    
+        function updateDashboard() {
+            document.getElementById('vipTicketsSold').textContent = vipTicketsSold;
+            document.getElementById('standardTicketsSold').textContent = standardTicketsSold;
+    
+            // Calcul du revenu total
+            let totalRevenue = (vipTicketsSold * vipTicketPrice) + (standardTicketsSold * standardTicketPrice);
+            document.getElementById('totalRevenue').textContent = totalRevenue.toFixed(2);
+        }
+    
+        updateDashboard();
+    </script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    </body>
+    
+
+    <!-- jQuery -->
+    <script src="assets/js/jquery-2.1.0.min.js"></script>
+
+    <!-- Bootstrap -->
+    <script src="assets/js/popper.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!-- Plugins -->
+    <script src="assets/js/scrollreveal.min.js"></script>
+    <script src="assets/js/waypoints.min.js"></script>
+    <script src="assets/js/jquery.counterup.min.js"></script>
+    <script src="assets/js/imgfix.min.js"></script> 
+    <script src="assets/js/mixitup.js"></script> 
+    <script src="assets/js/accordions.js"></script>
+    <script src="assets/js/owl-carousel.js"></script>
+    
+    <!-- Global Init -->
+    <script src="assets/js/custom.js"></script>
+
+    <!-- *** Footer *** -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <!-- Address Section -->
+                <div class="col-lg-4">
+                    <div class="address">
+                        <h4>Adresse de notre Siège</h4>
+                        <span>5 Rue du Futur, <br>1000 Dakar<br>Senegal</span>
+                    </div>
+                </div>
+    
+                <!-- Useful Links Section -->
+                <div class="col-lg-4">
+                    <div class="links">
+                        <h4>Liens Utiles</h4>
+                        <ul>
+                            <li><a href="index.html" class="active">Accueil</a></li>
+                            <li><a href="creer-evenement.html">Créer un Événement</a></li>
+                            <li><a href="evement-details.html">Trouver des événements</a></li> 
+                            <li><a href="tickets.html">Tickets</a></li>
+                            <li><a href="tableaude-bord.html">Tableau de bord</a></li>
+                            <li><a href="connexion.html">Connexion</a></li>
+                            <li><a href="inscription.html">S'inscrire</a></li>
+                    </div>
+                </div>
+    
+                <!-- Open Hours Section -->
+                <div class="col-lg-4">
+                    <div class="hours">
+                        <h4>Horaires d'ouverture</h4>
+                        <ul>
+                            <li>Lun - Ven: 9h00 à 18h00</li>
+                            <li>Sam - Dim: 10h00 à 14h00</li>
+                            <li>Fériés: Fermé</li>
+                        </ul>
+                    </div>
+                </div>
+    
+                <!-- Under Footer -->
+                <div class="col-lg-12">
+                    <div class="under-footer">
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-6">
+                                <p>Sécurisez vos événements avec des billets NFT garantis</p>
+                            </div>
+                            <div class="col-lg-6 col-sm-6">
+                                <p class="copyright">
+                                    &copy; 2024 Billetterie Blockchain<br>
+                                    Conception : <a href="#" target="_blank" rel="nofollow">Aboubacar Camara</a>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Sub Footer with Navigation and Social Links -->
+                <div class="col-lg-12">
+                    <div class="sub-footer">
+                        <div class="row">
+                            <!-- Logo -->
+                            <div class="col-lg-3">
+                                <div class="logo">
+                                    <span>Billetterie<em>Blockchain</em></span>
+                                </div>
+                            </div>
+    
+                            <!-- Menu Navigation -->
+                            <div class="col-lg-6">
+                                <div class="menu">
+                                    <ul>
+                                        <li><a href="index.html" class="active">Accueil</a></li>
+                                        <li><a href="about.html">À Propos</a></li>
+                                        <li><a href="rent-venue.html">Louer un Lieu</a></li>
+                                        <li><a href="shows-events.html">Événements</a></li>
+                                        <li><a href="tickets.html">Billets</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+    
+                            <!-- Social Media Links -->
+                            <div class="col-lg-3">
+                                <div class="social-links">
+                                    <ul>
+                                        <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-linkedin"></i></a></li>
+                                        <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+  </body>
+
+</html>
